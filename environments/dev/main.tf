@@ -42,3 +42,12 @@ module "eks" {
   vpc_id = module.vpc.vpc_id                  # VPC ID where EKS cluster will be deployed
   private_subnet = module.vpc.private_subnet  # Private subnet userd for worker nodes
 }
+
+# IAM
+# Passes OIDC information from EKS module to IAM module.
+module "iam" {
+  source = "../../modules/iam"
+
+  oidc_provider_arn = module.eks.oidc_provider_arn
+  oidc_provider_url = module.eks.cluster_oidc_issuer_url
+}
