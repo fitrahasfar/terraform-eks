@@ -1,7 +1,7 @@
 # Import the official VPC module from the Terraform Registry
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"  # Source module vpc
-  version = "~> 6.0"
+  version = "~> 5.1.2"
 
   name = var.name   # Name VPC
   cidr = var.cidr   # Main cird VPC
