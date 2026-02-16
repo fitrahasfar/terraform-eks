@@ -9,6 +9,8 @@ module "eks" {
   subnet_ids = var.private_subnet               # Subnet for worker node
   control_plane_subnet_ids = var.private_subnet # Subnet for control plant
 
+  enable_irsa = true                            # Enables OIDC Provider so Kubernetes pods can assume IAM Roles.
+
   # Addons Kubernetes
   cluster_addons = {                            # This add-on is an important component for the Kubernetes cluster to run normally.
     coredns = {                                 # Kubernetes internal DNS (so that pods and services can find each other)
